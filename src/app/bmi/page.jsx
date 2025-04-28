@@ -32,6 +32,7 @@ export default function BMIForm() {
   } = contextprovides();
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   console.log("height", height);
@@ -127,6 +128,7 @@ export default function BMIForm() {
 
     setBmi(calculatedBmi);
     setBmiCategory(categoryData);
+    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -146,6 +148,7 @@ export default function BMIForm() {
       } else {
         console.error("Failed to save BMI entry:", response.data);
       }
+      setLoading(false);
       router.push("/pages/result");
     } catch (error) {
       console.error(
@@ -200,8 +203,13 @@ export default function BMIForm() {
                 Please verify your weight and details before clicking Calculate.
               </p>
               <button
+                disabled={loading}
                 onClick={handleCalculate}
-                className="bg-[#e7000b] animate-bounce cursor-pointer hover:bg-[#c6000a] transition-colors duration-300 text-white uppercase font-bold flex items-center px-6 max-md:text-sm py-2 relative"
+                className={`${
+                  loading
+                    ? "bg-[#e7000b]/60"
+                    : "bg-[#e7000b] hover:bg-[#c6000a]"
+                } animate-bounce cursor-pointer transition-colors duration-300 text-white uppercase font-bold flex items-center px-6 max-md:text-sm py-2 relative`}
                 style={{
                   clipPath:
                     "polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%)",
@@ -221,7 +229,7 @@ export default function BMIForm() {
                     d="M9 3h6a2 2 0 012 2v2H7V5a2 2 0 012-2zM7 9h10M7 13h4m-4 4h10"
                   />
                 </svg>
-                Calculate
+                {loading ? "Calculating..." : "Calculate"}
               </button>
             </div>
           </div>
