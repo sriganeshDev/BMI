@@ -130,7 +130,7 @@ export default function BMIForm() {
 
     try {
       const response = await axios.post(
-        `${process.env.PUBLIC_NEXT_API_URL}/api/bmi`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/bmi`,
         {
           gender: selectedGender,
           age: age,
