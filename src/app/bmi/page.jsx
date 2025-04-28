@@ -159,7 +159,7 @@ export default function BMIForm() {
     <div className="flex flex-col w-full min-h-screen bg-gray-50 items-center px-3  ">
       <Header />
 
-      <div className="w-full flex lg:gap-3  lg:px-10  justify-around max-md:flex-col-reverse">
+      <div className="w-full flex lg:gap-3  lg:px-10  justify-around max-md:flex-col">
         <div className="w-full md:w-1/2 lg:pt-5 py-2 flex justify-center items-start">
           <div className="sticky top-32 md:top-40 w-full max-w-3xl lg:p-6 max-md:p-3 flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 lg:space-y-4 max-md:space-y-1.5  bg-white shadow-md">
             <GenderSelector
