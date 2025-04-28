@@ -67,7 +67,7 @@ export default function BMIForm() {
   //   setErrors(validationErrors);
   //   return Object.keys(validationErrors).length === 0;
   // };
-
+  // console.log("env", process.env.NEXT_PUBLIC_API_URL);
   const validateInputs = () => {
     let validationErrors = {};
     let heightCm = 0;
