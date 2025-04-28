@@ -129,14 +129,17 @@ export default function BMIForm() {
     setBmiCategory(categoryData);
 
     try {
-      const response = await axios.post(process.env.PUBLIC_NEXT_API_URL, {
-        gender: selectedGender,
-        age: age,
-        height: height,
-        weight: weight,
-        bmi: calculatedBmi,
-        bmiCategory: categoryData,
-      });
+      const response = await axios.post(
+        `${process.env.PUBLIC_NEXT_API_URL}/api/bmi`,
+        {
+          gender: selectedGender,
+          age: age,
+          height: height,
+          weight: weight,
+          bmi: calculatedBmi,
+          bmiCategory: categoryData,
+        }
+      );
 
       if (response.status === 200) {
         console.log("BMI entry saved successfully!");
