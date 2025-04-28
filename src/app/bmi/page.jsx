@@ -129,7 +129,7 @@ export default function BMIForm() {
     setBmiCategory(categoryData);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/bmi", {
+      const response = await axios.post(process.env.PUBLIC_NEXT_API_URL, {
         gender: selectedGender,
         age: age,
         height: height,
