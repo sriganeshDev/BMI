@@ -123,7 +123,7 @@ const AgeSelector = () => {
         </button>
       </div> */}
 
-      <h1 className="text-lg md:text-xl lg:text-2xl lg:mb-10 w-full flex justify-center items-center font-semibold">
+      <h1 className="text-lg md:text-xl lg:text-2xl lg:mb-10 w-full flex justify-center items-center text-black font-semibold">
         Please choose your Age
       </h1>
       <div className="w-full flex justify-center items-center ">

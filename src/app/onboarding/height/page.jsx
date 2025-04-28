@@ -412,7 +412,7 @@ export default function HeightSelector() {
       </div>
       <div className="flex flex-col items-center justify-center">
         <div className="w-full flex flex-col justify-center items-center">
-          <h2 className="text-lg md:text-xl lg:text-3xl lg:mb-10 w-full flex justify-center items-center font-semibold mb-4">
+          <h2 className="text-lg md:text-xl lg:text-3xl text-black lg:mb-10 w-full flex justify-center items-center font-semibold mb-4">
             Select your Height
           </h2>
           <div className="flex lg:mb-8 md:mb-6 mb-3 flex-wrap justify-center sm:justify-start gap-2">
@@ -421,8 +421,8 @@ export default function HeightSelector() {
                 key={u}
                 className={`lg:px-4 px-2 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === u
-                    ? "bg-black text-white border-black shadow-md scale-105"
-                    : "bg-white text-black border-gray-300 hover:bg-gray-300"
+                    ? "bg-red-100 text-red-700 border-[#C6000A] scale-105" // Active button with light red theme
+                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-200 hover:text-red-400" // Hover and default state
                 }`}
                 onClick={() => setUnit(u)}
               >

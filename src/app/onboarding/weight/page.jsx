@@ -259,8 +259,8 @@ export default function WeightScaleSelector() {
                 onClick={() => setUnitWithConversion("kg")}
                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === "kg"
-                    ? "bg-black text-white border-black shadow-md scale-105"
-                    : "bg-white text-black border-gray-300 hover:bg-gray-300"
+                    ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
+                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
                 }`}
               >
                 KG
@@ -269,8 +269,8 @@ export default function WeightScaleSelector() {
                 onClick={() => setUnitWithConversion("lb")}
                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === "lb"
-                    ? "bg-black text-white border-black shadow-md scale-105"
-                    : "bg-white text-black border-gray-300 hover:bg-gray-300"
+                    ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
+                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
                 }`}
               >
                 LB
@@ -279,7 +279,7 @@ export default function WeightScaleSelector() {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <div className="relative bg-gradient-to-br from-[#b9d7f3] to-[#2b5eca] rounded-2xl p-4 shadow-lg lg:w-[280px] lg:h-[320px] md:w-[200px] md:h-[280px] w-[170px] h-[230px] flex flex-col items-center justify-start border-4 border-white">
+            <div className="relative bg-gradient-to-br from-[#f4eee8] to-[#dabda1] rounded-2xl p-4 shadow-lg lg:w-[280px] lg:h-[320px] md:w-[200px] md:h-[280px] w-[170px] h-[230px] flex flex-col items-center justify-start border-4 border-white">
               <div className="relative lg:w-48 lg:h-28 md:w-40 md:h-20 w-34 h-20 bg-white rounded-b-full shadow-inner overflow-hidden mb-4">
                 <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10">
                   <div className="w-0 h-0 border-l-6 border-r-6 border-b-[14px] border-b-red-600"></div>

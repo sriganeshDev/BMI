@@ -9,7 +9,7 @@ const CommonButton = ({ navroute }) => {
     <>
       <button
         onClick={() => router.push(`${navroute}`)}
-        className="lg:mt-6 md:mt-4 mt-2 w-full py-2 bg-black text-white rounded-full shadow"
+        className="lg:mt-6 md:mt-4 mt-2 w-full py-2 cursor-pointer border-2 border-red-600 bg-red-500 text-white rounded-full shadow hover:bg-red-600 hover:text-white"
       >
         Next
       </button>
