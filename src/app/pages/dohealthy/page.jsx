@@ -4,13 +4,12 @@ import Image from "next/image";
 
 export default function DoHealthy() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-100 p-4 sm:p-6 md:p-8 ">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-100  ">
       <h1 className="lg:text-2xl text-xl  lg:py-5 py-3 font-bold text-gray-900 text-center">
         Understand Your BMI and Health Better
       </h1>
 
       <div className="flex flex-col lg:pt-2 w-full max-w-7xl space-y-8">
-        {/* BMI Table Section */}
         <div className="bg-white  rounded-xl  shadow-lg w-full overflow-x-auto">
           <Image
             src="/bmichart.png"

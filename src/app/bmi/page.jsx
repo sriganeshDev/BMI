@@ -236,7 +236,7 @@ export default function BMIForm() {
         </div>
 
         <div className="w-full md:w-1/2 pt-5 flex justify-center items-start">
-          <div className="w-full max-w-3xl p-6 flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 lg:space-y-3 max-md:space-y-2 bg-white shadow-md">
+          <div className="w-full  lg:p-6 p-4   flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 lg:space-y-3 max-md:space-y-2 bg-white shadow-md">
             <div className="w-full space-y-6 max-md:space-y-2">
               <h2 className="text-lg max-md:text-base font-bold text-gray-800">
                 What does BMI mean?
