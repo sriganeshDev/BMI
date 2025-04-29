@@ -240,7 +240,6 @@ export default function WeightScaleSelector() {
     setUnit(newUnit);
   };
 
-  // 🔁 External mouse wheel scroll support
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -320,7 +319,10 @@ export default function WeightScaleSelector() {
                             ? "text-black text-lg scale-110"
                             : "text-gray-400 text-sm"
                         }`}
-                        onClick={() => setWeight({ unit, value: w })}
+                        onClick={() => {
+                          setWeight({ unit, value: w });
+                          scrollToWeight(w);
+                        }}
                       >
                         {w}
                       </div>
