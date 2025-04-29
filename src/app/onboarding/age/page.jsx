@@ -290,17 +290,6 @@ const AgeSelector = () => {
 
   return (
     <div className="w-full max-w-md mx-auto relative rounded-2xl px-3 pt-3 flex flex-col justify-between space-y-6">
-      {/* <div className="relative top-0 pb-16 left-0 md:hidden">
-        <button
-          type="button"
-          onClick={() => router.push("/onboarding")}
-          className="flex items-center text-xs gap-2 text-black hover:text-blue-600 rounded-full transition-all duration-300"
-        >
-          <FaArrowLeft />
-          Back
-        </button>
-      </div> */}
-
       <h1 className="text-lg md:text-xl lg:text-2xl lg:mb-10 w-full flex justify-center items-center text-black font-semibold">
         Please choose your Age
       </h1>
@@ -328,7 +317,7 @@ const AgeSelector = () => {
         </div>
       </div>
 
-      <div className="w-full lg:px-10">
+      <div className="w-full max-md:pt-14 lg:px-10">
         <CommonButton navroute={"/onboarding/height"} />
       </div>
     </div>

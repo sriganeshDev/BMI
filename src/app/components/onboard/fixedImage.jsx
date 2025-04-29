@@ -1,6 +1,6 @@
 const FixedImage = () => {
   return (
-    <div className="relative w-full md:w-1/2 lg:w-1/2 h-4/4 md:h-full rounded-l-2xl overflow-hidden">
+    <div className="relative w-full md:w-1/2 lg:w-1/2 h-4/4 md:h-full  overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center "
         style={{

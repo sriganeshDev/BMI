@@ -8,7 +8,7 @@ const ResultPage = () => {
   const { bmi, bmiInfo } = contextprovides();
 
   return (
-    <div className="flex w-full min-h-screen bg-gray-50 items-center justify-center lg:px-10 py-2 md:py-5 ">
+    <div className="flex w-full min-h-screen bg-gray-50 items-start justify-start lg:px-10 py-2 md:py-5 ">
       <div className="flex flex-col sticky lg:top-48 lg:flex-row w-full  gap-8">
         <div className="w-full lg:w-3/3 flex justify-center items-start">
           <div className=" w-full p-6 flex flex-col justify-center items-center rounded-2xl border-2 border-gray-200 bg-white shadow-md space-y-4">

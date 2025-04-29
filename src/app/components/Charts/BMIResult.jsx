@@ -5,7 +5,7 @@ import GaugeChart from "./GaugeChart";
 const BMIResult = ({ bmi, bmiInfo }) => {
   const router = useRouter();
   return (
-    <div className="w-full flex-col space-y-4 flex justify-center items-center mx-auto relative">
+    <div className="w-full flex-col space-y-3 flex justify-center items-center mx-auto relative">
       <button
         onClick={() => {
           router.push("/bmi");

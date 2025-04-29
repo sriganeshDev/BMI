@@ -400,16 +400,16 @@ export default function HeightSelector() {
 
   return (
     <div className="flex flex-col justify-start">
-      <div className="relative top-0 mb-5 left-0 md:hidden">
-        {/* <button
+      {/* <div className="relative top-0 mb-5 left-0 md:hidden">
+        <button
           type="button"
           onClick={() => router.push("/onboarding/age")}
           className="flex items-center gap-2 text-xs text-black hover:text-blue-600 rounded-full transition-all duration-300"
         >
           <FaArrowLeft />
           Back
-        </button> */}
-      </div>
+        </button>
+      </div> */}
       <div className="flex flex-col items-center justify-center">
         <div className="w-full flex flex-col justify-center items-center">
           <h2 className="text-lg md:text-xl lg:text-3xl text-black lg:mb-10 w-full flex justify-center items-center font-semibold mb-4">
@@ -421,7 +421,7 @@ export default function HeightSelector() {
                 key={u}
                 className={`lg:px-4 px-2 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === u
-                    ? "bg-red-100 text-red-700 border-[#C6000A] scale-105" // Active button with light red theme
+                    ? "bg-red-100 text-red-700 border-[#C6000A] scale-105"
                     : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-200 hover:text-red-400" // Hover and default state
                 }`}
                 onClick={() => setUnit(u)}
