@@ -17,7 +17,7 @@ const GenderCompo = () => {
 
   return (
     <div className="w-full max-w-md mx-auto px-4 mt-5 lg:py-8 flex flex-col items-center text-center">
-      <h1 className="text-2xl md:text-3xl font-bold mb-2 relative">
+      <h1 className="text-2xl md:text-3xl text-black font-bold mb-2 relative">
         BMI Calculator
       </h1>
       <p className="text-gray-600 mb-6">Please choose your gender</p>

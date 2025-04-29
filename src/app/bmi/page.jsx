@@ -159,7 +159,7 @@ export default function BMIForm() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gray-50 items-center px-3  ">
+    <div className="flex flex-col w-full min-h-screen text-black bg-gray-50 items-center px-3  ">
       <Header />
 
       <div className="w-full flex lg:gap-3  lg:px-10  justify-around max-md:flex-col">

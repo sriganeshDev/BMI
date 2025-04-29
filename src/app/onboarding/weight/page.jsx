@@ -263,7 +263,7 @@ export default function WeightScaleSelector() {
       <div className="flex w-full flex-col justify-start">
         <div className="flex flex-col items-center justify-center">
           <div className="w-full flex flex-col justify-center items-center">
-            <h2 className="text-lg md:text-xl lg:text-3xl lg:mb-10 w-full flex justify-center items-center font-semibold mb-4">
+            <h2 className="text-lg md:text-xl lg:text-3xl text-black lg:mb-10 w-full flex justify-center items-center font-semibold mb-4">
               Select your weight
             </h2>
             <div className="flex lg:mb-8 md:mb-6 mb-3 flex-wrap justify-center sm:justify-start gap-2">
