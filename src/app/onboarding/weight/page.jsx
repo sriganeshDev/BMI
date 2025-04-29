@@ -2,7 +2,7 @@
 
 // import CommonButton from "@/app/components/ui/CommonButton";
 // import { contextprovides } from "@/context/CommonContext";
-// import React, { useState, useRef, useEffect } from "react";
+// import React, { useState, useRef, useEffect, useCallback } from "react";
 // import { FaArrowLeft } from "react-icons/fa";
 
 // export default function WeightScaleSelector() {
@@ -20,7 +20,7 @@
 //       ? [...Array(maxKg - minKg + 1).keys()].map((w) => w + minKg)
 //       : [...Array(maxLb - minLb + 1).keys()].map((w) => w + minLb);
 
-//   const handleScroll = () => {
+//   const handleScroll = useCallback(() => {
 //     const container = containerRef.current;
 //     if (!container) return;
 
@@ -48,7 +48,7 @@
 //     if (closest) {
 //       setWeight({ unit, value: parseInt(closest.dataset.value) });
 //     }
-//   };
+//   }, [unit, setWeight]);
 
 //   const scrollToWeight = (w) => {
 //     const container = containerRef.current;
@@ -89,8 +89,8 @@
 //                 onClick={() => setUnitWithConversion("kg")}
 //                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
 //                   unit === "kg"
-//                     ? "bg-black text-white border-black shadow-md scale-105"
-//                     : "bg-white text-black border-gray-300 hover:bg-gray-300"
+//                     ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
+//                     : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
 //                 }`}
 //               >
 //                 KG
@@ -99,8 +99,8 @@
 //                 onClick={() => setUnitWithConversion("lb")}
 //                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
 //                   unit === "lb"
-//                     ? "bg-black text-white border-black shadow-md scale-105"
-//                     : "bg-white text-black border-gray-300 hover:bg-gray-300"
+//                     ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
+//                     : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
 //                 }`}
 //               >
 //                 LB
@@ -109,8 +109,8 @@
 //           </div>
 
 //           <div className="flex flex-col items-center justify-center">
-//             <div className="relative bg-gradient-to-br from-[#fff8ef] to-[#fae7ce] rounded-2xl p-4 shadow-lg lg:w-[280px] lg:h-[320px] md:w-[200px] md:h-[280px] w-[150px] h-[200px] flex flex-col items-center justify-start border-4 border-white">
-//               <div className="relative lg:w-48 lg:h-28 md:w-40 md:h-20 w-32 h-20 bg-white rounded-b-full shadow-inner overflow-hidden mb-4">
+//             <div className="relative bg-gradient-to-br from-[#f4eee8] to-[#dabda1] rounded-2xl p-4 shadow-lg lg:w-[280px] lg:h-[320px] md:w-[200px] md:h-[280px] w-[170px] h-[230px] flex flex-col items-center justify-start border-4 border-white">
+//               <div className="relative lg:w-48 lg:h-28 md:w-40 md:h-20 w-34 h-20 bg-white rounded-b-full shadow-inner overflow-hidden mb-4">
 //                 <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10">
 //                   <div className="w-0 h-0 border-l-6 border-r-6 border-b-[14px] border-b-red-600"></div>
 //                 </div>
@@ -126,40 +126,34 @@
 //                       "radial-gradient(circle at center top, black 60%, transparent 100%)",
 //                   }}
 //                 >
-//                   {weights.map((w) => (
-//                     <div
-//                       key={w}
-//                       data-value={w}
-//                       className="weight-tick snap-center w-12 h-20 flex items-end justify-center transition-transform duration-150 ease-out text-black font-semibold"
-//                       onClick={() => setWeight({ unit, value: w })}
-//                     >
-//                       {w}
-//                     </div>
-//                   ))}
+//                   {weights.map((w) => {
+//                     const isSelected = weight.value === w;
+//                     return (
+//                       <div
+//                         key={w}
+//                         data-value={w}
+//                         className={`weight-tick snap-center w-12 h-20 flex items-end justify-center transition-transform duration-150 ease-out font-semibold cursor-pointer ${
+//                           isSelected
+//                             ? "text-black text-lg scale-110"
+//                             : "text-gray-400 text-sm"
+//                         }`}
+//                         onClick={() => setWeight({ unit, value: w })}
+//                       >
+//                         {w}
+//                       </div>
+//                     );
+//                   })}
 //                 </div>
 //               </div>
 
-//               <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-between h-full">
-//                 {weights.map((w) => (
-//                   <div
-//                     key={w}
-//                     className="w-1 bg-gray-700"
-//                     style={{
-//                       height: "8px",
-//                       margin: "2px 0",
-//                     }}
-//                   ></div>
-//                 ))}
-//               </div>
-
 //               <div className="flex-grow w-full flex items-center justify-center">
-//                 <span className="lg:text-3xl text-2xl font-bold text-black drop-shadow-md">
+//                 <span className="lg:text-2xl text-xl font-bold text-black drop-shadow-md">
 //                   {weight.value} {unit.toUpperCase()}
 //                 </span>
 //               </div>
 //             </div>
 //           </div>
-//           <div className="lg:w-[40%] w-[90%] mt-5">
+//           <div className="lg:w-[50%] w-[90%]  mt-5 ">
 //             <CommonButton navroute={"/bmi"} />
 //           </div>
 //         </div>
@@ -246,6 +240,25 @@ export default function WeightScaleSelector() {
     setUnit(newUnit);
   };
 
+  // 🔁 External mouse wheel scroll support
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY;
+      }
+    };
+
+    container.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      container.removeEventListener("wheel", onWheel);
+    };
+  }, []);
+
   return (
     <>
       <div className="flex w-full flex-col justify-start">
@@ -259,8 +272,8 @@ export default function WeightScaleSelector() {
                 onClick={() => setUnitWithConversion("kg")}
                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === "kg"
-                    ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
-                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
+                    ? "bg-red-100 text-red-700 border-red-500 scale-105"
+                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700"
                 }`}
               >
                 KG
@@ -269,8 +282,8 @@ export default function WeightScaleSelector() {
                 onClick={() => setUnitWithConversion("lb")}
                 className={`lg:px-4 px-4 lg:py-1 lg:text-base text-sm rounded-full border transition-all duration-300 ease-in-out font-medium shadow-sm ${
                   unit === "lb"
-                    ? "bg-red-100 text-red-700 border-red-500 scale-105" // Active button with light red theme
-                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700" // Hover and default state
+                    ? "bg-red-100 text-red-700 border-red-500 scale-105"
+                    : "bg-white text-black border-gray-300 hover:bg-red-100 hover:border-red-500 hover:text-red-700"
                 }`}
               >
                 LB
