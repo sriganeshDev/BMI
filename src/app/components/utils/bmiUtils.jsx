@@ -1,21 +1,24 @@
+//// Converting the all height to meter...
 export function convertHeightToMeters(height) {
   const unit = height.unit;
 
   if (unit === "ft") {
-    // Change this to "ft"
+    //// Change this to "ft"
     const totalInches = (height.feet || 0) * 12 + (height.inches || 0);
-    return totalInches * 0.0254; // Convert inches to meters
+    return totalInches * 0.0254; //// Convert inches to meters.....
   } else if (unit === "cm") {
-    return (height.cm || 0) / 100; // Convert cm to meters
+    return (height.cm || 0) / 100; //// Convert cm to meters.....
   } else if (unit === "in") {
-    return (height.inchesOnly || 0) * 0.0254; // Convert inches to meters
+    return (height.inchesOnly || 0) * 0.0254; //// Convert inches to meters....
   }
-  return 0; // Return 0 if none of the conditions match
+  return 0;
 }
 
+////Converting the lb to Kg....
 export function convertWeightToKg(weight) {
   return weight.unit === "lb" ? weight.value * 0.453592 : weight.value;
 }
+//// Calculate BMI...
 
 export function calculateBMI(height, weight) {
   const h = convertHeightToMeters(height);
@@ -23,15 +26,17 @@ export function calculateBMI(height, weight) {
   return h > 0 ? w / (h * h) : 0;
 }
 
+//// Finding the correct weight fort the height...
+
 export function getBMICategory(bmi, heightUnit, height, weightUnit) {
   let category = "Normal";
   let color = "green";
   let actionText = "0 - 0";
   let healthyRange = "18.5 - 24.9";
 
-  const hMeters = convertHeightToMeters(height);
-  const minWeight = 18.5 * hMeters * hMeters;
-  const maxWeight = 24.9 * hMeters * hMeters;
+  const hInMeters = convertHeightToMeters(height);
+  const minWeight = 18.5 * hInMeters * hInMeters;
+  const maxWeight = 24.9 * hInMeters * hInMeters;
 
   const convertWeight = (val) =>
     weightUnit === "lb"
@@ -39,7 +44,7 @@ export function getBMICategory(bmi, heightUnit, height, weightUnit) {
       : `${val.toFixed(0)} Kg`;
 
   const actualWeight = convertWeightToKg({
-    value: bmi * hMeters * hMeters,
+    value: bmi * hInMeters * hInMeters,
     unit: "kg",
   });
 

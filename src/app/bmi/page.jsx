@@ -36,7 +36,7 @@ export default function BMIForm() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  console.log("height", height);
+  // console.log("height", height);
 
   // const validateInputs = () => {
   //   let validationErrors = {};
@@ -70,6 +70,7 @@ export default function BMIForm() {
   //   return Object.keys(validationErrors).length === 0;
   // };
   // console.log("env", process.env.NEXT_PUBLIC_API_URL);
+
   const validateInputs = () => {
     let validationErrors = {};
     let heightCm = 0;
@@ -94,11 +95,9 @@ export default function BMIForm() {
     } else {
       validationErrors.height = "Invalid height unit.";
     }
-
     if (heightCm < 50 || heightCm > 350) {
       validationErrors.height = "Height must be between 50 cm and 350 cm.";
     }
-
     if (!age || age < 10 || age > 75) {
       validationErrors.age = "Age must be between 10 and 75 years.";
     }
